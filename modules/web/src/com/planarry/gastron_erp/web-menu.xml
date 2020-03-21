@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
+    <menu id="application-gastronerp" insertBefore="administration">
+        <item screen="gastronerp_Driver.browse"/>
+        <item screen="gastronerp_Sensor.browse"/>
+        <item screen="gastronerp_Task.browse"/>
+        <item screen="gastronerp_Trailer.browse"/>
+        <item screen="gastronerp_Truck.browse"/>
+        <item screen="gastronerp_WayPoint.browse"/>
+    </menu>
+</menu-config>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://browseCaption"
+        focusComponent="tasksTable"
+        messagesPack="com.planarry.gastron_erp.web.screens.task">
+    <data readOnly="true">
+        <collection id="tasksDc"
+                    class="com.planarry.gastron_erp.entity.task.Task"
+                    view="task-view">
+            <loader id="tasksDl">
+                <query>
+                    <![CDATA[select e from gastronerp_Task e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="tasksTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="tasksTable"
+                dataLoader="tasksDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="tasksTable"
+                    width="100%"
+                    dataContainer="tasksDc"
+                    multiselect="true">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+                <action id="refresh" type="refresh"/>
+                <action id="excel" type="excel"/>
+            </actions>
+            <columns>
+                <column id="externalID"/>
+                <column id="dateAndTIme"/>
+                <column id="taskType"/>
+                <column id="point"/>
+                <column id="truck"/>
+                <column id="trailer"/>
+                <column id="driver"/>
+<!--                <column id="lastDateOfChange"/>-->
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="tasksTable.create"/>
+                <button id="editBtn" action="tasksTable.edit"/>
+                <button id="removeBtn" action="tasksTable.remove"/>
+                <button id="refreshBtn" action="tasksTable.refresh"/>
+                <button id="excelBtn" action="tasksTable.excel"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

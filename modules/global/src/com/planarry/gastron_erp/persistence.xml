@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+    <persistence-unit name="gastron_erp" transaction-type="RESOURCE_LOCAL">
+
+        <class>com.planarry.gastron_erp.entity.sensor.Sensor</class>
+        <class>com.planarry.gastron_erp.entity.global.BaseEntity</class>
+        <class>com.planarry.gastron_erp.entity.driver.Driver</class>
+        <class>com.planarry.gastron_erp.entity.task.Task</class>
+        <class>com.planarry.gastron_erp.entity.trailer.Trailer</class>
+        <class>com.planarry.gastron_erp.entity.truck.Truck</class>
+        <class>com.planarry.gastron_erp.entity.waypoint.WayPoint</class>
+    </persistence-unit>
+</persistence>

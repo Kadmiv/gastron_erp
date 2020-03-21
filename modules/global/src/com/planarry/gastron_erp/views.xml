@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<views xmlns="http://schemas.haulmont.com/cuba/view.xsd">
+
+    <view entity="gastronerp_Driver" name="driver-view" extends="_local">
+        <property name="sensor" view="_minimal"/>
+    </view>
+    <view entity="gastronerp_Sensor" name="sensor-view" extends="_local">
+        <property name="driver" view="_minimal"/>
+    </view>
+    <view entity="gastronerp_Task" name="task-view" extends="_local">
+        <property name="point" view="_minimal"/>
+        <property name="truck" view="_minimal">
+            <property name="name"/>
+        </property>
+        <property name="trailer" view="_minimal"/>
+        <property name="driver" view="_minimal"/>
+    </view>
+</views>

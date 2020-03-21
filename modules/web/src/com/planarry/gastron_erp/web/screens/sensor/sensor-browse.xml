@@ -1,0 +1,90 @@
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://browseCaption"
+        focusComponent="table"
+        messagesPack="com.planarry.gastron_erp.web.screens.sensor">
+    <data>
+        <collection id="sensorsDc"
+                    class="com.planarry.gastron_erp.entity.sensor.Sensor"
+                    view="sensor-view">
+            <loader id="sensorsDl">
+                <query>
+                    <![CDATA[select e from gastronerp_Sensor e]]>
+                </query>
+            </loader>
+        </collection>
+        <instance id="sensorDc"
+                  class="com.planarry.gastron_erp.entity.sensor.Sensor"
+                  view="sensor-view">
+            <loader/>
+        </instance>
+    </data>
+    <actions>
+        <action id="save" icon="icons/ok.png" caption="mainMsg://actions.Ok" shortcut="CTRL-ENTER"/>
+        <action id="cancel" icon="icons/cancel.png" caption="mainMsg://actions.Cancel" description="Esc"/>
+    </actions>
+    <dialogMode height="600" width="800"/>
+    <layout>
+        <split id="split" height="100%" orientation="horizontal" reversePosition="true" width="100%">
+            <vbox id="lookupBox" expand="table" height="100%" margin="false,true,false,false" spacing="true">
+                <filter id="filter" applyTo="table" dataLoader="sensorsDl">
+                    <properties include=".*"/>
+                </filter>
+                <groupTable id="table"
+                            width="100%"
+                            dataContainer="sensorsDc"
+                            multiselect="true">
+                    <actions>
+                        <action id="create" type="create"/>
+                        <action id="edit" type="edit"/>
+                        <action id="remove" type="remove"/>
+                        <action id="refresh" type="refresh"/>
+                        <action id="excel" type="excel"/>
+                    </actions>
+                    <columns>
+                        <column id="imei"/>
+                        <column id="name"/>
+                        <column id="externalID"/>
+                        <column id="driver"/>
+                        <!--                        <column id="lastDateOfChange"/>-->
+                    </columns>
+                    <rowsCount/>
+                    <buttonsPanel id="buttonsPanel"
+                                  alwaysVisible="true">
+                        <button id="createBtn" action="table.create"/>
+                        <button id="editBtn" action="table.edit"/>
+                        <button id="removeBtn" action="table.remove"/>
+                        <button id="refreshBtn" action="table.refresh"/>
+                        <button id="excelBtn" action="table.excel"/>
+                    </buttonsPanel>
+                </groupTable>
+                <hbox id="lookupActions" spacing="true" visible="false">
+                    <button action="lookupSelectAction"/>
+                    <button action="lookupCancelAction"/>
+                </hbox>
+            </vbox>
+            <vbox id="editBox" height="100%" margin="false,false,false,true" expand="fieldGroupBox" spacing="true">
+                <scrollBox id="fieldGroupBox">
+                    <form id="form" dataContainer="sensorDc">
+                        <column width="250px">
+                            <textField id="externalIDField" property="externalID"/>
+                            <textField id="name" property="name"/>
+                            <textField id="imeiField" property="imei"/>
+                            <pickerField id="driverField" property="driver">
+                                <actions>
+                                    <action id="lookup" type="picker_lookup"/>
+                                    <action id="open" type="picker_open"/>
+                                </actions>
+                            </pickerField>
+<!--                            <dateField id="lastDateOfChangeField" property="lastDateOfChange"/>-->
+                        </column>
+                    </form>
+                </scrollBox>
+                <hbox id="actionsPane" spacing="true" visible="false">
+                    <button id="saveBtn" action="save"/>
+                    <button id="cancelBtn" action="cancel"/>
+                </hbox>
+            </vbox>
+        </split>
+    </layout>
+</window>

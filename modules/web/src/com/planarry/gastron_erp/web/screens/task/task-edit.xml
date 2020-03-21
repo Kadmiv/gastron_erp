@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://editorCaption"
+        focusComponent="form"
+        messagesPack="com.planarry.gastron_erp.web.screens.task">
+    <data>
+        <instance id="taskDc"
+                  class="com.planarry.gastron_erp.entity.task.Task"
+                  view="task-view">
+            <loader/>
+        </instance>
+    </data>
+    <dialogMode height="AUTO"
+                width="AUTO"
+                modal="true"
+                forceDialog="true"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="taskDc">
+            <column width="250px">
+                <textField id="externalIDField" property="externalID"/>
+                <dateField id="dateAndTImeField" property="dateAndTIme"/>
+                <lookupField id="taskTypeField" property="taskType"/>
+                <pickerField id="pointField" property="point">
+                    <actions>
+                        <action id="lookup" type="picker_lookup"/>
+                        <action id="open" type="picker_open"/>
+                    </actions>
+                </pickerField>
+                <pickerField id="truckField" property="truck">
+                    <actions>
+                        <action id="lookup" type="picker_lookup"/>
+                        <action id="open" type="picker_open"/>
+                    </actions>
+                </pickerField>
+                <pickerField id="trailerField" property="trailer">
+                    <actions>
+                        <action id="lookup" type="picker_lookup"/>
+                        <action id="open" type="picker_open"/>
+                    </actions>
+                </pickerField>
+                <pickerField id="driverField" property="driver">
+                    <actions>
+                        <action id="lookup" type="picker_lookup"/>
+                        <action id="open" type="picker_open"/>
+                    </actions>
+                </pickerField>
+<!--                <dateField id="lastDateOfChangeField" property="lastDateOfChange"/>-->
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

@@ -15,6 +15,17 @@
           <option name="url" value="jdbc:hsqldb:hsql://localhost:9010/gastronerp-XTPZrE8DY" />
           <option name="user" value="sa" />
         </SavedDbProperties>
+        <SavedDbProperties>
+          <option name="databaseName" value="gastronerp" />
+          <option name="dbType" value="postgres" />
+          <option name="host" value="88.99.60.22" />
+          <option name="pass" value="postgres" />
+          <option name="port" value="49666" />
+          <option name="systemPassword" value="" />
+          <option name="systemUser" value="" />
+          <option name="url" value="jdbc:postgresql://88.99.60.22:49666/gastronerp" />
+          <option name="user" value="postgres" />
+        </SavedDbProperties>
       </list>
     </option>
   </component>
